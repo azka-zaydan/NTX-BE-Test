@@ -1,0 +1,24 @@
+services:
+  ntx-postgres:
+    container_name: ntx-postgres
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres-ntx:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ntx_db
+  ntx-redis:
+    image: redis:latest
+    container_name: ntx-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - /home/$USER:/root/redis
+    environment:
+      REDIS_PORT: "6379"
+      REDIS_DATABASES: "16"
+      REDIS_PASSWORD: "password"

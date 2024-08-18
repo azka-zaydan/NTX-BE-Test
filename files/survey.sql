@@ -54,3 +54,14 @@ INSERT INTO public.surveys ("values","createdAt","updatedAt","userId") VALUES
 	 ('{100,100,90,90,100}','2022-12-22 08:56:50.696+07','2022-12-22 08:56:50.696+07',1),
 	 ('{90,100,100,80,90}','2022-12-22 09:08:50.908+07','2022-12-22 09:08:50.908+07',2),
 	 ('{80,80,80,80,80}','2022-12-22 21:05:32.317+07','2022-12-22 21:05:32.317+07',3);
+
+
+CREATE TABLE public.attacks (
+  id serial PRIMARY KEY,
+  "attackType" varchar(255),
+  "sourceCountry" varchar(255),
+  "destinationCountry" varchar(255),
+  severity varchar(50),
+  "createdAt" timestamptz NOT NULL DEFAULT NOW(),
+  "updatedAt" timestamptz NOT NULL DEFAULT NOW()
+);
